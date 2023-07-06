@@ -38,6 +38,7 @@ jobs:
       - name: debug metadata output
         id: debug_metadata
         run: |
+         env
          echo ${{ steps.meta.outputs }}
 
       - name: Build and push Docker image
