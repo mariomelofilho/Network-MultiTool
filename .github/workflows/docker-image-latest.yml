@@ -28,8 +28,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}   
-        run:
-          env     
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -50,10 +48,8 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-#            ${{env.REGISTRY}}/${{ github.actor}}/network-multitool:latest
-          labels: ${{ steps.meta.outputs.labels }}
-          run: |
-            env          
+            ${{env.REGISTRY}}/${{ github.actor}}/network-multitool:latest
+          labels: ${{ steps.meta.outputs.labels }}        
           
 #      - name: Build the Docker image
 #        run: |
